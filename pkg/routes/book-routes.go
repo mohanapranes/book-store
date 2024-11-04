@@ -5,12 +5,11 @@ import (
 	"github.com/mohanapranes/book-store/pkg/controllers"
 )
 
-var RegisterBookStoreRoutes = func() {
-	router := gin.Default()
+var RegisterBookStoreRoutes = func(router *gin.Engine) {
 
 	router.POST("/book", controllers.CreateBook)
 	router.GET("/book", controllers.GetBooks)
-	router.GET("/book/{bookId}", controllers.GetABookById)
-	router.PUT("/book/{bookId}", controllers.UpdateABook)
-	router.DELETE("/book/{bookId}", controllers.DeleteABook)
+	router.GET("/book/:bookId", controllers.GetABookById)
+	router.PUT("/book/:bookId", controllers.UpdateABook)
+	router.DELETE("/book/:bookId", controllers.DeleteABook)
 }
